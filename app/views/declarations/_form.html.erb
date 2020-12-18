@@ -1,0 +1,59 @@
+<%= form_with(model: declaration, local: true) do |form| %>
+  <% if declaration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(declaration.errors.count, "error") %> prohibited this declaration from being saved:</h2>
+
+      <ul>
+      <% declaration.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :carte %>
+    <%= form.text_field :carte, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :projet %>
+    <%= form.text_field :projet, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :produit %>
+    <%= form.text_field :produit, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :declaration %>
+    <%= form.text_field :declaration, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :float %>
+    <%= form.text_field :float, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if declaration.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', declaration, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if declaration.persisted? %>
+      <%= link_to "Cancel", declaration, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", declarations_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

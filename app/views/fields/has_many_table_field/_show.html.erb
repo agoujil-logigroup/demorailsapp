@@ -1,0 +1,20 @@
+<table aria-labelledby="page-title">
+  <thead>
+    <tr>
+      <td>Produit</td>
+      <td>Quantite</td>
+      <td>ToPrixtal TTC</td>
+      <td>Total TTC</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% field.build.each do | ligne | %>
+    <tr class="js-table-row">
+      <td><%=ligne.produit.libelle %></td>
+      <td><%=ligne.quantite%></td>
+      <td><%=ligne.produit.prix_ht %></td>
+      <td><%=ligne.quantite * ligne.produit.prix_ht %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

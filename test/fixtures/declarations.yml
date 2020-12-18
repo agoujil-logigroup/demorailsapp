@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: MyString
+  carte: MyString
+  projet: MyString
+  produit: MyString
+  declaration: MyString
+  float: MyString
+
+two:
+  user_id: MyString
+  carte: MyString
+  projet: MyString
+  produit: MyString
+  declaration: MyString
+  float: MyString
