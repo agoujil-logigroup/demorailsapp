@@ -8,14 +8,22 @@
 
 require 'faker'
 
+Commercial.delete_all
+(1..7).each do |id|
+    Commercial.create!(
+        nom: Faker::Name.name,
+        taux: [2,7,14,29].sample
+    )
+end
 
-
+commercials = Commercial.all.pluck(:id)
 Client.delete_all
 (1..100).each do |id|
     Client.create!(
         nom: Faker::Name.name,
         email: Faker::Internet.email,
-        ville: Faker::Address.city
+        ville: Faker::Address.city,
+        commercial_id: commercials.sample
     )
 end
 
@@ -46,7 +54,7 @@ nfacture = "FA0000"
     Facture.create!(
         nfacture: nfacture,
         date: Faker::Date.between(from: '2020-12-31', to: '2019-01-01'),
-        client_id: clients.sample  ,
+        client_id: clients.sample,
         valide: rand(1)
     )
 end
